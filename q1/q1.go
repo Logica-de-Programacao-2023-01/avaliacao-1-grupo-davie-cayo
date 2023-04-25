@@ -1,5 +1,7 @@
 package q1
 
+import "fmt"
+
 //Em um dia quente de verão, Pete e seu amigo Billy decidiram comprar uma melancia. Eles escolheram a maior e mais
 //saborosa, na opinião deles, e, em seguida, pesaram a fruta nas balanças, obtendo seu peso em quilos. Morrendo de sede,
 //correram para casa com a melancia e decidiram dividi-la. No entanto, enfrentaram um problema difícil.
@@ -14,6 +16,22 @@ package q1
 //da melancia for menor ou igual a 0, a função deve retornar um erro.
 
 func DivideWatermelon(weight int) (bool, error) {
-	// Seu código aqui
-	return false, nil
+	var peso_da_melancia int
+	fmt.Println("insira o peso da melancia")
+	_, err := fmt.Scanf("%d", &peso_da_melancia)
+	if err != nil {
+		return false, err
+	}
+	fmt.Println("insira o valor para a divisão do peso da melancia")
+	var divisao int
+	_, err = fmt.Scanf("%d", &divisao)
+	if err != nil {
+		return false, err
+	}
+	if peso_da_melancia%divisao == 0 && peso_da_melancia > 2*divisao {
+		return true, nil
+	} else {
+		return false, nil
+	}
+
 }
